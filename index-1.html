@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+	<style type="text/css">
+		.box__item {
+			width: 200px;
+			height: 200px;
+			background: #ffe0e5;
+			padding: 50px 20px 10px;
+			margin: 20px;
+			position: relative;
+			border-radius: 20px;
+
+		}
+
+		.box {
+			flex-wrap: wrap;
+			width: 90%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+		}
+		.item:nth-child(odd) {
+			background: #d3e8ff;
+		}
+		span {
+		  position: absolute;
+		  top: 10px;
+		  left: 25%;
+		  border-radius: 10px;
+		  background: #ffe0e5;
+		  padding: 5px;
+		}
+		
+		p {
+			position: absolute;
+			bottom: -40px;
+		}
+
+	</style>
+</head>
+<body>
+<input type="button" name="" value="click" class="click">
+
+	<div class="box">
+		<div class="box__item">
+		  <img src="https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/1075399.svg">
+		  <span><i class="fas fa-tag"></i>For sale = <i class="price">0.0001</i></span>
+		<p class="color">
+			<strong class="code">#108123</strong>
+			<i class="far fa-heart"></i>
+		</p></div>
+	</div>
+		
+	  <template id="clone">
+		<div class="box__item">
+		  <img src="https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/1075399.svg" class="img-clone">
+		  <span><i class="fas fa-tag"></i>For sale = <i class="price-clone"></i></span>
+		<p class="color">
+			<strong  class="code-clone"></strong>
+			<i class="far fa-heart"></i>
+		</p></div>
+	  </template>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+        var add = document.querySelector(".click");
+        var t = document.querySelector("#clone");
+        var cont = document.querySelector(".box");
+
+        var i = 0;
+
+        add.addEventListener('click', function() {
+            var card = document.importNode(t.content, true);
+            var price = card.querySelector(".price-clone");
+             var code = card.querySelector(".code-clone");
+            var cimg = card.querySelector(".img-clone");
+          
+            cont.appendChild(card);
+            price.innerHTML = arr[i].price;
+            code.innerHTML = arr[i].code;
+            cimg.src = arr[i].src;
+            // card.style.backgroundColor = arr[i].bg;
+            i++;
+            if (i == arr.length) {
+                i = 0
+            }
+        });
+
+
+        var arr = [{
+            price: 0.0004,
+            src: "https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/1082340.svg",
+            code: '#108123'
+           
+        }, {
+            price: 0.0007,
+            src: "https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/1075399.svg",
+             code: '#1034345'
+           
+        }, {
+            price: 0.0009,
+            src: "https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/493457.svg",
+             code: '#308123'
+            
+        }, {
+            price: 0.0031,
+            src: "https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/1082340.svg",
+             code: '#708143'
+           
+        }]
+  	
+	</script>
+</body>
+</html>
